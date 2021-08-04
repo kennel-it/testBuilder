@@ -1,0 +1,27 @@
+# esempio di file.... le righe che iniziano con # sono dei commenti
+# quelle che iniziano con * (se c'è un numero attaccato viene scartato) sono le domande
+# + per le risposte giuste e - per le sbagliate. = per quelle da eliminare per compiti più brevi (es: DSA)
+
+*1 Dei seguenti nomi di variabili quale è sintatticamente errato?
++ 1lato
+- lato1
+- Lato1
+= LATO1
+
+# la parte racchiusa tra due ## viene resa in un font monospaced
+*14 Quanto vale l'espressione ##2/2*2## ?
++ 2
+- 0.5
+- 4
+= 0.25
+
+# se serve di scrivere parti di codice si puà fare così
+*25 Quanto vale ##x## alla fine del seguente frammento di programma?##\
+int x=10;\
+int a=20;\
+a=x;\
+x=a;##
++ 10
+- 20
+- 30
+= -10

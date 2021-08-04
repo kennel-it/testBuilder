@@ -1,0 +1,33 @@
+= testBuilder
+
+== versioni del software utilizzato
+
+Questo progetto usa maven come sistema di build ed è modulare. 
+A quello che vedo maven non crea cartelle distinte per ogni modulo 
+(ma magari fa bene perché è un modulo solo).
+
+Oltre a questo usa una libreria (SODS) che non è modulare quindi:
+fatto fork su GitHub, aggiunto module-info e impostata versione java a 9.
+Il jar è poi stato inserito manualmente nella libreria di maven cambiando il numero di versione
+----
+mvn clean
+mvn package
+mvn install:install-file \
+   -Dfile=target/SODS-versione.jar \
+   -DgroupId=com.github.miachm.sods \
+   -DartifactId=SODS \
+   -Dversion=1.versione \
+   -Dpackaging=jar \
+   -DgeneratePom=true
+----
+
+== eclipse
+
+attenzione al jdk che vieme impostato da eclipse dopo il refresh del progetto maven, 
+non deve contenere javafx altrimenti da errore perché i moduli sono duplicati
+
+== audio
+
+https://freetts.com/#ads
+
+la voce dei numeri è it-IT-Standard-B

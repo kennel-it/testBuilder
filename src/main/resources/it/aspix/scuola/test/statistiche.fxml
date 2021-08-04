@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="principale" stylesheets="@impostazioni.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.aspix.scuola.test.ControlloStatistiche">
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+            <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="ricalcola" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#aggiornaStatistiche" text="ricalcola" GridPane.columnIndex="2" />
+            <ToggleButton fx:id="etichette" mnemonicParsing="false" selected="true" text="etichette" />
+            <ToggleButton fx:id="legenda" mnemonicParsing="false" text="legenda" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </top>
+   <bottom>
+      <Button fx:id="salvaPNG" mnemonicParsing="false" onAction="#salvaStatistiche" text="salva PNG" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox id="pannelloGrafici" fx:id="contenuto" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" />
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

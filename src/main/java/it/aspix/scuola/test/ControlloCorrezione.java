@@ -1,0 +1,178 @@
+package it.aspix.scuola.test;
+
+import java.util.function.Consumer;
+
+import it.aspix.scuola.test.compito.Compito;
+import it.aspix.scuola.test.svolgimento.Svolgimento;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+
+public class ControlloCorrezione {
+
+    @FXML
+    ToggleButton suono;
+    @FXML
+    ComboBox<Integer> selezioneCompito;
+    @FXML
+    private TextField valBase;
+    @FXML
+    private TextField valGiuste;
+    @FXML
+    private TextField valSbagliate;
+    @FXML
+    private Label punteggio;
+    @FXML
+    private ScrollPane scrollDomande;
+    @FXML
+    private Pane pannelloDomande;
+    
+    private PannelloCorrezioneDomanda[] pannelliCorrezione;
+    private int domandaInCorrezione;
+    
+    private Valutatore valutatore = new Valutatore();
+    
+    @FXML
+    void initialize() {
+        clickSuono();
+        valoriCambiati();
+        LavoroAttuale.addAscoltatoreCompitoCambiato( x -> {
+            if( x == ParteCompito.SVOLGIMENTO ) {
+                selezioneCompito.getItems().clear();
+                for(Svolgimento s: LavoroAttuale.getSvolgimenti()) {
+                    selezioneCompito.getItems().add(s.id);
+                }
+            }
+        });
+    }
+
+    @FXML
+    private void clickSuono() {
+        if(suono.isSelected()) {
+            suono.setText("suono on");
+            SupportoAudio.acceso = true;
+        } else {
+            suono.setText("suono ff");
+            SupportoAudio.acceso = false;
+        }
+    }
+    
+    Consumer<Integer> cambiataRisposta = indiceRispostaCambiata -> {
+        // in verità l'indice della risposta non serve
+        try {
+            punteggio.setText(""+valutatore.getPunteggio());
+        } catch(Exception ex) {
+            punteggio.setText("?");
+        }
+    };
+    
+    @FXML
+    public void valoriCambiati() {
+        try {
+            valutatore.setValoreBase( Double.parseDouble(valBase.getText()) );
+        }catch(Exception ex) { /* pazienza resterà zero */  };
+        try {
+            valutatore.setValoreGiusta( Double.parseDouble(valGiuste.getText()) );
+        }catch(Exception ex) { /* pazienza resterà zero */  };
+        try {
+            valutatore.setValoreSbagliata( Double.parseDouble(valSbagliate.getText()) );
+        }catch(Exception ex) { /* pazienza resterà zero */  };
+        cambiataRisposta.accept(-1);
+    }
+    
+    @FXML
+    public void selezionatoCompito() {
+        int id = selezioneCompito.getValue();
+        
+        Compito compito = LavoroAttuale.getCompitoPerId(id);
+        Svolgimento svolgimento = LavoroAttuale.getSvolgimentoPerId(id);
+        
+        pannelloDomande.getChildren().clear();
+        pannelliCorrezione = new PannelloCorrezioneDomanda[ compito.domande.size() ];
+        for(int i=0 ; i<compito.domande.size() ; i++) {
+            pannelliCorrezione[i] = new PannelloCorrezioneDomanda(
+                    i,
+                    cambiataRisposta,
+                    compito.domande.get(i),
+                    svolgimento.domande.get(i)
+            );
+            pannelliCorrezione[i].getProperties().put("numeroDomanda", i);
+            pannelliCorrezione[i].setOnMouseClicked( (MouseEvent e) -> {
+                domandaInCorrezione = (int) ((PannelloCorrezioneDomanda)e.getSource()).getProperties().get("numeroDomanda");
+                mostraSelezionato();
+            });
+            pannelloDomande.getChildren().add( pannelliCorrezione[i] );
+            pannelliCorrezione[i].getStyleClass().add("box");
+        }
+        valutatore.setCompito(compito);
+        valutatore.setSvolgimento(svolgimento);
+        domandaInCorrezione = 0;
+        mostraSelezionato();
+    }
+    
+    private void mostraSelezionato() {
+        // al primo giro l'altezza è zero perché viene chiamato prima che
+        // i pannelli vengano disegnati, poco importa tanto all'inizio
+        // la posizione zero in verticale è quello che serve
+        double altezza = pannelliCorrezione[0].getHeight();
+        System.out.println(altezza);
+        System.out.println("    "+scrollDomande.getVmin()+" "+scrollDomande.getVmax());
+        // FIXME: devi anche scrollare
+        scrollDomande.setVvalue( altezza * domandaInCorrezione / (altezza*pannelliCorrezione.length));
+        for(int i=0 ; i<pannelliCorrezione.length ; i++) {
+            pannelliCorrezione[i].getStyleClass().clear();
+            pannelliCorrezione[i].getStyleClass().add("box");
+            if(i==domandaInCorrezione) {
+                pannelliCorrezione[i].getStyleClass().add("box-edit");
+            } else {
+                pannelliCorrezione[i].getStyleClass().add("box-plain");
+            }
+        }
+    }
+    
+    @FXML
+    public void salvaSvolgimenti() {
+        LavoroAttuale.salvaSvolgimenti( LavoroAttuale.getNomeFileSvolgimenti() );
+    }
+    
+    @FXML
+    private void tastoPremuto(KeyEvent ev) {
+        String carattere = ev.getCharacter();
+        System.out.println(carattere);
+        
+        if( carattere.length()==1 && " abcdef".indexOf(carattere)!=-1 ) {
+            int numero = ev.getCharacter().charAt(0)-'a';
+            if(numero == ' '-'a') {
+                numero = -1;
+            }
+            pannelliCorrezione[ domandaInCorrezione ].aggiornaRisposta(numero);
+            switch( valutatore.getStatoRisposta(domandaInCorrezione) ) {
+            case GIUSTA:
+                SupportoAudio.play( SupportoAudio.SI );
+                break;
+            case NON_DATA:
+                SupportoAudio.play( SupportoAudio.BIANCA );
+                break;
+            case SBAGLIATA:
+                SupportoAudio.play( SupportoAudio.NO );
+                break;
+            }
+           
+            domandaInCorrezione++;
+            if(domandaInCorrezione>=pannelliCorrezione.length) {
+                domandaInCorrezione = pannelliCorrezione.length-1;
+                SupportoAudio.play( SupportoAudio.FINE );
+            } else {
+                SupportoAudio.play( SupportoAudio.NUMERO[domandaInCorrezione] );
+            }
+            mostraSelezionato();
+        }
+    }
+
+}

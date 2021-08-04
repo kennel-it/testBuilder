@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+         <content>
+            <TextArea fx:id="informazioni" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="500.0">
+               <font>
+                  <Font name="Monospaced Regular" size="13.0" />
+               </font></TextArea>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <Label fx:id="stato" maxWidth="1.7976931348623157E308" onMouseClicked="#clickSuStato" text="Label" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
