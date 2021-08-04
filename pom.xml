@@ -2,17 +2,22 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>it.aspix</groupId>
-    <artifactId>scuolatools</artifactId>
+    <artifactId>testBuilder</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>testBuilder</name>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>16</maven.compiler.release>
+        <progetto.jars>${project.build.directory}/jars</progetto.jars>
         <!-- versioni delle librerie -->
         <!-- https://search.maven.org/artifact/org.openjfx/javafx-base -->
         <versione.javafx>16</versione.javafx>
         <!-- https://search.maven.org/search?q=g:com.github.miachm.sods -->
         <versione.SODS>1.4.0</versione.SODS>
     </properties>
+    
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -48,17 +53,21 @@
 		</dependency>
     </dependencies>
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-            </plugin>
+		<plugins>
+			<!--  per controllare le versioni di java in compilazione -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>${maven.compiler.release}</release>
+				</configuration>
+			</plugin>
 			<!-- gestione delle dipendenze, e in particolare per copiare i jar in una unica cartella -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.2.0</version>
 				<configuration>
 					<outputDirectory>${progetto.jars}</outputDirectory>
 					<overWriteReleases>false</overWriteReleases>
@@ -75,6 +84,23 @@
 					</execution>
 				</executions>
 			</plugin>
-        </plugins>
-    </build>
+			<!-- impostare la cartella di destinazione del progetto -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<outputDirectory>${progetto.jars}</outputDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+        <resources>
+            <resource>
+                <!-- cartella solita delle risorse -->
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+        </resources>   
+
+	</build>
 </project>
