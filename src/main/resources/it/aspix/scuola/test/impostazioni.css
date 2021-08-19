@@ -33,7 +33,7 @@
 -fx-text-alignment: right;
 -fx-alignment: center-right;
 } 
-
+.info { -fx-alignment: center-left; }
 .principale {
 	-fx-padding: 1em;
 	-fx-hgap: 0.5em;

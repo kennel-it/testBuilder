@@ -15,21 +15,23 @@
     <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
   </columnConstraints>
   <rowConstraints>
+    <RowConstraints />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" valignment="BOTTOM" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <Label text="numero di compiti ridotti:" />
-      <Label text="layout:" GridPane.rowIndex="2" />
-      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#generaTest" text="Crea compiti" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />
-      <TextField fx:id="numeroDiCompitiCompleti" maxWidth="1.7976931348623157E308" text="30" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <ComboBox fx:id="layout" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Label text="numero di compiti completi:" GridPane.rowIndex="1" />
-      <TextField fx:id="numeroDiCompitiRidotti" GridPane.columnIndex="1" />
-      <TextField GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
+      <Label text="numero di compiti ridotti:" GridPane.rowIndex="1" />
+      <Label text="layout:" GridPane.rowIndex="3" />
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#generaTest" text="Crea compiti" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
+      <TextField fx:id="numeroDiCompitiCompleti" maxWidth="1.7976931348623157E308" text="30" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <ComboBox fx:id="layout" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label text="numero di compiti completi:" GridPane.rowIndex="2" />
+      <TextField fx:id="numeroDiCompitiRidotti" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField GridPane.columnSpan="2147483647" GridPane.rowIndex="5" />
+      <Label fx:id="info1" maxWidth="1.7976931348623157E308" styleClass="info" text="Label" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" />
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

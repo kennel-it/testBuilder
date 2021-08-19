@@ -8,10 +8,13 @@ import it.aspix.scuola.test.io.WriterODT;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class ControlloGenerazione {
 	
+    @FXML
+    private Label info1;
     @FXML
     private TextField numeroDiCompitiCompleti;
     @FXML
@@ -26,6 +29,12 @@ public class ControlloGenerazione {
         layout.getItems().addAll(OrganizzazioneRisposte.BLOCK.toString(),OrganizzazioneRisposte.INLINE.toString());
         layout.setValue(OrganizzazioneRisposte.BLOCK.toString());
         numeroDiCompitiCompleti.requestFocus();
+        
+        LavoroAttuale.addAscoltatoreCompitoCambiato( x -> {
+            if( x == ParteCompito.MODELLO ) {
+                info1.setText("Il modello in uso contiene "+LavoroAttuale.getModello().sizeDomande()+" domande");
+            }
+        });
     }
     
     private final int getNumero(TextField tf) {
