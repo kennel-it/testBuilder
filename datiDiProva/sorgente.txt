@@ -1,0 +1,21 @@
+# #####################################################################
+#                             Commentone
+# #####################################################################
+
+*1 Domanda numero 1
++ risposta1-1 giusta
+- risposta1-2 sbagliata
+- risposta1-3 sbagliata
+= risposta1-4 evitabile
+
+*2 Domanda numero 2
+- risposta2-1 sbagliata
++ risposta2-2 giusta
+= risposta2-3 evitabile
+- risposta2-4 sbagliata
+
+*3 Domanda numero 3
++ risposta3-1 giusta
+- risposta3-2 sbagliata
+- risposta3-3 sbagliata
+= risposta3-4 evitabile

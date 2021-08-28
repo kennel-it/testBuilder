@@ -1,0 +1,37 @@
+[ {
+  "id" : 0,
+  "domande" : [ {
+    "valore" : 0
+  }, {
+    "valore" : 2
+  }, {
+    "valore" : 0
+  } ]
+}, {
+  "id" : 1,
+  "domande" : [ {
+    "valore" : 0
+  }, {
+    "valore" : 0
+  }, {
+    "valore" : 0
+  } ]
+}, {
+  "id" : 2,
+  "domande" : [ {
+    "valore" : 1
+  }, {
+    "valore" : 0
+  }, {
+    "valore" : 1
+  } ]
+}, {
+  "id" : 3,
+  "domande" : [ {
+    "valore" : 2
+  }, {
+    "valore" : 2
+  }, {
+    "valore" : 2
+  } ]
+} ]

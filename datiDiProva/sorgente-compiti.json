@@ -1,0 +1,229 @@
+[ {
+  "id" : 0,
+  "domande" : [ {
+    "testo" : "Domanda numero 3",
+    "posizioneOriginale" : 2,
+    "risposte" : [ {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta3-1 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 2,
+      "testo" : "risposta3-3 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta3-2 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 3,
+      "testo" : "risposta3-4 evitabile",
+      "giusta" : false
+    } ]
+  }, {
+    "testo" : "Domanda numero 2",
+    "posizioneOriginale" : 1,
+    "risposte" : [ {
+      "posizioneOriginale" : 3,
+      "testo" : "risposta2-4 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta2-1 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta2-2 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 2,
+      "testo" : "risposta2-3 evitabile",
+      "giusta" : false
+    } ]
+  }, {
+    "testo" : "Domanda numero 1",
+    "posizioneOriginale" : 0,
+    "risposte" : [ {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta1-1 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 2,
+      "testo" : "risposta1-3 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta1-2 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 3,
+      "testo" : "risposta1-4 evitabile",
+      "giusta" : false
+    } ]
+  } ]
+}, {
+  "id" : 1,
+  "domande" : [ {
+    "testo" : "Domanda numero 1",
+    "posizioneOriginale" : 0,
+    "risposte" : [ {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta1-1 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 2,
+      "testo" : "risposta1-3 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta1-2 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 3,
+      "testo" : "risposta1-4 evitabile",
+      "giusta" : false
+    } ]
+  }, {
+    "testo" : "Domanda numero 2",
+    "posizioneOriginale" : 1,
+    "risposte" : [ {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta2-2 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 3,
+      "testo" : "risposta2-4 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 2,
+      "testo" : "risposta2-3 evitabile",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta2-1 sbagliata",
+      "giusta" : false
+    } ]
+  }, {
+    "testo" : "Domanda numero 3",
+    "posizioneOriginale" : 2,
+    "risposte" : [ {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta3-2 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 2,
+      "testo" : "risposta3-3 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta3-1 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 3,
+      "testo" : "risposta3-4 evitabile",
+      "giusta" : false
+    } ]
+  } ]
+}, {
+  "id" : 2,
+  "domande" : [ {
+    "testo" : "Domanda numero 3",
+    "posizioneOriginale" : 2,
+    "risposte" : [ {
+      "posizioneOriginale" : 2,
+      "testo" : "risposta3-3 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta3-1 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta3-2 sbagliata",
+      "giusta" : false
+    } ]
+  }, {
+    "testo" : "Domanda numero 1",
+    "posizioneOriginale" : 0,
+    "risposte" : [ {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta1-1 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta1-2 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 2,
+      "testo" : "risposta1-3 sbagliata",
+      "giusta" : false
+    } ]
+  }, {
+    "testo" : "Domanda numero 2",
+    "posizioneOriginale" : 1,
+    "risposte" : [ {
+      "posizioneOriginale" : 3,
+      "testo" : "risposta2-4 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta2-2 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta2-1 sbagliata",
+      "giusta" : false
+    } ]
+  } ]
+}, {
+  "id" : 3,
+  "domande" : [ {
+    "testo" : "Domanda numero 2",
+    "posizioneOriginale" : 1,
+    "risposte" : [ {
+      "posizioneOriginale" : 3,
+      "testo" : "risposta2-4 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta2-1 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta2-2 giusta",
+      "giusta" : true
+    } ]
+  }, {
+    "testo" : "Domanda numero 1",
+    "posizioneOriginale" : 0,
+    "risposte" : [ {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta1-1 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 2,
+      "testo" : "risposta1-3 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta1-2 sbagliata",
+      "giusta" : false
+    } ]
+  }, {
+    "testo" : "Domanda numero 3",
+    "posizioneOriginale" : 2,
+    "risposte" : [ {
+      "posizioneOriginale" : 1,
+      "testo" : "risposta3-2 sbagliata",
+      "giusta" : false
+    }, {
+      "posizioneOriginale" : 0,
+      "testo" : "risposta3-1 giusta",
+      "giusta" : true
+    }, {
+      "posizioneOriginale" : 2,
+      "testo" : "risposta3-3 sbagliata",
+      "giusta" : false
+    } ]
+  } ]
+} ]
