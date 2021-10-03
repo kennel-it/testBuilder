@@ -1,50 +1,63 @@
-.errore { -fx-background-color: #ffcccc }
-.buono { -fx-background-color: #9cffa4 }
+.button, .combo-box, .toggle-button {
+ 	-fx-margin:0.25em; -fx-border-radius:0.2em;
+}
 
 .box { -fx-padding : 1em ; -fx-hgap : 1em }
-.box-plain { -fx-background-color: #feffd1 }
-.box-edit { -fx-background-color: #ffe433 }
 .ordine { -fx-font-size : 200% ; }
 .origine { -fx-font-size : 85% }
 
 .box > .toggle-button { 
 	-fx-font-size : 150% ; -fx-min-width : 4em ;
-	-fx-border-radius: 0.75em ; -fx-border-width: 0.2em; -fx-border-color: gray;  
-	-fx-background-radius: 0.75em; -fx-background-color: #eeeeee ; 
+	-fx-border-radius: 0.75em ; -fx-border-width: 0.2em;
+	-fx-background-radius: 0.75em;
 	-fx-font-weight: bold 
 }
 
-.box > .toggle-button:selected { -fx-border-color : red}
-
-.box > .sbagliata { -fx-background-color: red }
-.box > .giusta { -fx-background-color: green }
-.box > .sarebbeStataGiusta { -fx-background-color: #c2ffc4 }
-
-#input {
+#pannelloInput {
 	-fx-padding: 0.5em;	
 	-fx-hgap: 0.25em;
 	-fx-vgap: 0.25em;
-	-fx-background-color: #bdcede;
 }
 
 .label {
-/* sopra, destra, sotto, sinistra */
--fx-padding: 0em 0.5em 0em 0em;
--fx-text-alignment: right;
--fx-alignment: center-right;
+	/* sopra, destra, sotto, sinistra */
+	-fx-padding: 0em 0.5em 0em 0em;
+	-fx-text-alignment: right;
+	-fx-alignment: center-right;
 } 
 .info { -fx-alignment: center-left; }
+
 .principale {
 	-fx-padding: 1em;
 	-fx-hgap: 0.5em;
 	-fx-vgap: 1em;
 }
 
-/* https://stackoverflow.com/questions/15219334/javafx-change-piechart-color */
-/* https://docs.oracle.com/javafx/2/charts/css-styles.htm */
-.default-color0.chart-pie { -fx-pie-color: green; }
-.default-color1.chart-pie { -fx-pie-color: #ebcf44 }
-.default-color2.chart-pie { -fx-pie-color: #f79e20 }
-.default-color3.chart-pie { -fx-pie-color: #ff864a }
-
 #pannelloGrafici > .label { -fx-padding: 1em 0em 0em 0em; -fx-font-size : 150% ;}
+.button, .toggle-button { -fx-min-width:8em; }
+
+.text-area:focused { -fx-background-color: transparent }
+.text-area:hover { -fx-background-color: transparent; }
+.text-area:focused:hover {-fx-background-color: transparent; }
+
+.tab {
+  -fx-background-insets: 0 0.5em 0 0.5em;
+  -fx-padding: 0 2em 0 2em;
+}
+.tab-label:hover {
+	-fx-background-color: transparent ;
+	-fx-border-width:2px;
+}
+
+.tab-content-area { -fx-padding: 1em }
+
+.tab-content-area .button, .tab-content-area .toggle-button { 
+	-fx-border-width: 1px; -fx-border-radius: 0.5em ; -fx-border-style: solid;
+ 	-fx-background-radius: 0.5em ; -fx-background-insets: 1px;
+}
+
+/** questa cosa non è documentata
+https://stackoverflow.com/questions/35260168/how-to-remove-the-blue-color-in-selected-tab-pane */
+.tab:selected .focus-indicator {
+     -fx-border-width: 0;
+}

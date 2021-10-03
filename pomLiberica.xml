@@ -13,32 +13,12 @@
         <progetto.jars>${project.build.directory}/jars</progetto.jars>
         <!-- versioni delle librerie -->
         <!-- https://search.maven.org/artifact/org.openjfx/javafx-base -->
-        <versione.javafx>17</versione.javafx>
+        <versione.javafx>16</versione.javafx>
         <!-- https://search.maven.org/search?q=g:com.github.miachm.sods -->
         <versione.SODS>1.4.0</versione.SODS>
     </properties>
     
     <dependencies>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>${versione.javafx}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>${versione.javafx}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-web</artifactId>
-            <version>${versione.javafx}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-swing</artifactId>
-            <version>${versione.javafx}</version>
-        </dependency>
         <!-- https://github.com/miachm/SODS -->
         <dependency>
 		    <groupId>com.github.miachm.sods</groupId>

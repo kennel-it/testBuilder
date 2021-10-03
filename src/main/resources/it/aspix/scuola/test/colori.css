@@ -1,0 +1,52 @@
+#pannelloInput .errore    { -fx-background-color: #ff6659 ; -fx-prompt-text-fill: white }
+#pannelloInput .buono     { -fx-background-color: #c0ca33 ; -fx-text-fill: black }
+
+/* https://stackoverflow.com/questions/15219334/javafx-change-piechart-color */
+/* https://docs.oracle.com/javafx/2/charts/css-styles.htm */
+.default-color0.chart-pie { -fx-pie-color: green; }
+.default-color1.chart-pie { -fx-pie-color: #ebcf44 }
+.default-color2.chart-pie { -fx-pie-color: #f79e20 }
+.default-color3.chart-pie { -fx-pie-color: #ff864a }
+
+/* https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=D32F2F&secondary.color=C0CA33 */
+
+/* l'area in alto sull'aragosta */
+#pannelloInput                  { -fx-background-color: #ab000d; }
+#pannelloInput .label           {                                  -fx-text-fill: white; }
+#pannelloInput .combo-box       { -fx-background-color: #e53935; -fx-text-fill: white; }
+
+#pannelloInput .combo-box-popup .list-view           { -fx-background-color: #ff6659; }
+#pannelloInput .combo-box-popup .list-cell           { -fx-background-color: #ff6659; }
+#pannelloInput .combo-box-popup .list-cell:hover     { -fx-background-color: #e53935; }
+#pannelloInput .combo-box-popup .list-cell:selected  { -fx-background-color: #ab000d; }
+   
+.tab-header-background          { -fx-background-color: #ab000d; -fx-text-fill: white; }
+.headers-region                 { -fx-background-color: #ab000d; }
+
+/* l'area delle operazioni in verde marcio */
+
+.tab-content-area   { -fx-background-color: #c0ca33; }
+.tab:selected       { -fx-background-color: #c0ca33; }
+.tab                { -fx-background-color: #f5fd67; }
+
+.tab-content-area .button, .tab-content-area .toggle-button,  .tab-content-area .combo-box{ 
+	-fx-background-color: #8c9900 ; -fx-border-color: #f5fd67; 
+}
+.tab-content-area .combo-box-popup .list-view           { -fx-background-color: #f5fd67; }
+.tab-content-area .combo-box-popup .list-cell           { -fx-background-color: #f5fd67; }
+.tab-content-area .combo-box-popup .list-cell:hover     { -fx-background-color: #c0ca33; }
+.tab-content-area .combo-box-popup .list-cell:selected  { -fx-background-color: #8c9900; }
+
+.tab-content-area .toggle-button          { -fx-text-fill: gray; }
+.tab-content-area .toggle-button:selected { -fx-text-fill: white; }
+
+/* ------------------------------ area di correzione ------------------------------ */
+#pannelloDomande .box-plain { -fx-background-color: #feffd1 }
+#pannelloDomande .box-edit  { -fx-background-color: #ffe433 }
+
+#pannelloDomande .box > .toggle-button:selected { -fx-border-color : red}
+
+#pannelloDomande .box > .toggle-button      { -fx-background-color: white }
+#pannelloDomande .box > .sbagliata          { -fx-background-color: red }
+#pannelloDomande .box > .giusta             { -fx-background-color: green }
+#pannelloDomande .box > .sarebbeStataGiusta { -fx-background-color: #c2ffc4 }

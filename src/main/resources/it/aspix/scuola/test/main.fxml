@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@impostazioni.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.aspix.scuola.test.Main">
+<BorderPane id="principale" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.aspix.scuola.test.Main">
    <center>
       <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -38,7 +39,7 @@
       </TabPane>
    </center>
    <top>
-      <GridPane id="input" BorderPane.alignment="CENTER">
+      <GridPane id="pannelloInput" BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
@@ -52,7 +53,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TextField fx:id="nomeFileModello" editable="false" maxWidth="1.7976931348623157E308" onDragDropped="#dropFileDomande" onDragOver="#dragOverFileDomande" prefWidth="400.0" promptText="trascina qui un file ods o txt le domande" styleClass="errore" GridPane.columnIndex="1" />
+            <TextField fx:id="nomeFileModello" editable="false" maxWidth="1.7976931348623157E308" onDragDropped="#dropFileDomande" onDragOver="#dragOverFileDomande" prefWidth="400.0" promptText="trascina qui un file ods o txt con le domande" styleClass="errore" GridPane.columnIndex="1" />
             <Label text="File con le domande:" />
             <ComboBox fx:id="encoding" onAction="#cambiatoEncoding" prefWidth="150.0" GridPane.columnIndex="2" />
             <Label text="File da stampare:" GridPane.rowIndex="1" />
@@ -66,4 +67,8 @@
          </children>
       </GridPane>
    </top>
+   <stylesheets>
+      <URL value="@impostazioni.css" />
+      <URL value="@colori.css" />
+   </stylesheets>
 </BorderPane>
