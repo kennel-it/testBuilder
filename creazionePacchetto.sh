@@ -2,7 +2,7 @@
 # ATTENZIONE: questo script fa affidamento su una serie di cose più o meno standard
 # - la variabile JAVA_HOME deve essere impostata
 # - maven deve essere installato e sul path
-# - il progetto usa maven
+# - il progetto usa maven 
 # - mvn package mette tutti i jar in target/jars
 # - le icone sono nella cartella icone
 
@@ -71,7 +71,7 @@ mvn -q package -DskipTests
 
 mkdir $CARTELLA_LAVORO
 cp $CARTELLA_JARS/* $CARTELLA_LAVORO
-cp $DESTINAZIONE/$JAR_PRINCIPALE $CARTELLA_LAVORO
+# cp $DESTINAZIONE/$JAR_PRINCIPALE $CARTELLA_LAVORO
 rm $CARTELLA_LAVORO/javafx*
 
 # https://stackoverflow.com/questions/394230/how-to-detect-the-os-from-a-bash-script
@@ -98,7 +98,7 @@ elif [[ "$OSTYPE" == "linux"* ]]; then
     cd ..
 else
     cd target
-    cd sostituzioni
-    /c/Program\ Files/7-Zip/7z a -tzip ../sostituzioni-$VERSIONE.zip *
+    cd testBuilder
+    /c/Program\ Files/7-Zip/7z a -tzip ../testBuilder-$VERSIONE.zip *
     cd ..
 fi
