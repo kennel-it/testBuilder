@@ -17,7 +17,7 @@ public class SupportoAudio {
         LETTERA[3] = new Media(SupportoAudio.class.getResource("audio/d.mp3").toString());
     }
     
-    public static final Media NUMERO[] = new Media[10];
+    public static final Media NUMERO[] = new Media[32];
     static{
         for(int i=0; i<NUMERO.length ; i++) {
             NUMERO[i] = new Media(SupportoAudio.class.getResource("audio/"+i+".mp3").toString());

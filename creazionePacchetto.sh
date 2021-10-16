@@ -2,7 +2,7 @@
 # ATTENZIONE: questo script fa affidamento su una serie di cose più o meno standard
 # - la variabile JAVA_HOME deve essere impostata
 # - maven deve essere installato e sul path
-# - il progetto usa maven 
+# - il progetto usa maven
 # - mvn package mette tutti i jar in target/jars
 # - le icone sono nella cartella icone
 

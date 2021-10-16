@@ -87,7 +87,7 @@ public class WriterODT {
         "</office:document-content>");
         
         ByteArrayOutputStream bOS = new ByteArrayOutputStream();
-        OutputStreamWriter writer = new OutputStreamWriter(bOS);
+        OutputStreamWriter writer = new OutputStreamWriter(bOS, "UTF-8");
         writer.write(content.toString());
         writer.close();
         bOS.close();
