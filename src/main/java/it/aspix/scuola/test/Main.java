@@ -116,7 +116,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         Scene scena = new Scene( FXMLLoader.load(Main.class.getResource("main.fxml")) );
-        primaryStage.setTitle("Test time!");
+        primaryStage.setTitle("Test time! "+Versione.getVersione());
         primaryStage.setScene(scena);
         primaryStage.show();
     }

@@ -50,3 +50,7 @@
 #pannelloDomande .box > .sbagliata          { -fx-background-color: red }
 #pannelloDomande .box > .giusta             { -fx-background-color: green }
 #pannelloDomande .box > .sarebbeStataGiusta { -fx-background-color: #c2ffc4 }
+
+.giuste { -fx-background-color : #0bb800 }
+.sbagliate { -fx-background-color : red }
+.nonDate { -fx-background-color : yellow }

@@ -61,3 +61,10 @@ https://stackoverflow.com/questions/35260168/how-to-remove-the-blue-color-in-sel
 .tab:selected .focus-indicator {
      -fx-border-width: 0;
 }
+
+.etichettaVoto {
+	-fx-font-family: monospaced;
+	-fx-font-weight: bold;
+	-fx-padding: 0.25em;
+	-fx-background-radius: 0.5em; 
+}

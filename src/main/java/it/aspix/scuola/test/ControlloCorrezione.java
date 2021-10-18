@@ -32,6 +32,12 @@ public class ControlloCorrezione {
     private ScrollPane scrollDomande;
     @FXML
     private Pane pannelloDomande;
+    @FXML
+    private Label etichettaRisposteGiuste;
+    @FXML
+    private Label etichettaRisposteSbagliate;
+    @FXML
+    private Label etichettaRisposteNonDate;
     
     private PannelloCorrezioneDomanda[] pannelliCorrezione;
     private int domandaInCorrezione;
@@ -66,7 +72,13 @@ public class ControlloCorrezione {
     Consumer<Integer> cambiataRisposta = indiceRispostaCambiata -> {
         // in verità l'indice della risposta non serve
         try {
-            punteggio.setText(""+valutatore.getPunteggio());
+            punteggio.setText(String.format("%.2f", valutatore.getPunteggio()));
+            etichettaRisposteGiuste.setText("giuste: "+
+                    String.format("%2d",valutatore.getContatoreGiuste()));
+            etichettaRisposteSbagliate.setText("sbagliate: "+
+                    String.format("%2d",valutatore.getContatoreSbagliate()));
+            etichettaRisposteNonDate.setText("non date: "+
+                    String.format("%2d",valutatore.getContatoreNonDate()));
         } catch(Exception ex) {
             punteggio.setText("?");
         }

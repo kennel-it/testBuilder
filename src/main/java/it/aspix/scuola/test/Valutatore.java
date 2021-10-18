@@ -67,6 +67,53 @@ public class Valutatore {
     }
     
     /********************************************************************************************
+     * @return il numero di risposte giuste
+     *******************************************************************************************/
+    public int getContatoreGiuste() {       
+        int contatore = 0;
+
+        for(int i=0; i<svolgimento.domande.size(); i++) {
+            int rispostaScelta = svolgimento.domande.get(i).valore; 
+            if( rispostaScelta != -1 ) {
+                if(compito.domande.get(i).risposte.get(rispostaScelta).giusta) {
+                    contatore++;
+                }
+            }
+        }
+        return contatore;
+    }
+    /********************************************************************************************
+     * @return il numero di risposte sbagliate
+     *******************************************************************************************/
+    public int getContatoreSbagliate() {       
+        int contatore = 0;
+
+        for(int i=0; i<svolgimento.domande.size(); i++) {
+            int rispostaScelta = svolgimento.domande.get(i).valore; 
+            if( rispostaScelta != -1 ) {
+                if(!compito.domande.get(i).risposte.get(rispostaScelta).giusta) {
+                    contatore++;
+                }
+            }
+        }
+        return contatore;
+    }
+    /********************************************************************************************
+     * @return il numero di risposte giuste
+     *******************************************************************************************/
+    public int getContatoreNonDate() {       
+        int contatore = 0;
+
+        for(int i=0; i<svolgimento.domande.size(); i++) {
+            int rispostaScelta = svolgimento.domande.get(i).valore; 
+            if( rispostaScelta == -1 ) {
+                contatore++;
+            }
+        }
+        return contatore;
+    }
+    
+    /********************************************************************************************
      * @return un vettore che contiene le risposte ordinate come nel modello originale, il valore
      *         degli elementi del vettore è "-1" per risposta non data o l'inndice della 
      *         risposta sempre rispetto al modello originale

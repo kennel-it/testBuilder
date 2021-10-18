@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>it.aspix</groupId>
     <artifactId>testBuilder</artifactId>
-    <version>1.0.2</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
     <name>testBuilder</name>
     
@@ -99,6 +99,12 @@
                 <!-- cartella solita delle risorse -->
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
+            </resource>
+            <resource>
+                <!-- questa è una cartella in più, serve soltanto a mettere un file in cui maven 
+                quando compila registra il numero di versione e momento di compilazione -->
+                <directory>src/main/resources-filtered</directory>
+                <filtering>true</filtering>
             </resource>
         </resources>   
 
