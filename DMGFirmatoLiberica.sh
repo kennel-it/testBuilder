@@ -47,12 +47,13 @@ echo "DESTINAZIONE     : $DESTINAZIONE"
 echo "TIPO_PACCHETTO   : $TIPO_PACCHETTO"
 echo "--------------------------------------------------------------"
 
-mvn -q -f pomLiberica.xml clean
-mvn -q -f pomLiberica.xml package -DskipTests
+mvn -q clean
+mvn -q package -DskipTests
+# timuovo la roba di javafx perché devo prenderla dal runtime di Liberica
+rm target/jars/javafx-*
 
 mkdir $CARTELLA_LAVORO
 cp $CARTELLA_JARS/* $CARTELLA_LAVORO
-cp $DESTINAZIONE/$JAR_PRINCIPALE $CARTELLA_LAVORO
 
 COMMAND="$JPACKAGE --name testBuilder --app-version $VERSIONE --icon $ICONA --type $TIPO_PACCHETTO \
     --input $CARTELLA_LAVORO --dest $DESTINAZIONE \
@@ -60,12 +61,8 @@ COMMAND="$JPACKAGE --name testBuilder --app-version $VERSIONE --icon $ICONA --ty
     --main-class it.aspix.scuola.test.Main --main-jar $JAR_PRINCIPALE \
     --mac-package-name Sostituzioni \
     --mac-sign \
-    --mac-package-identifier it.aspix.scuola.test
+    --mac-package-identifier it.aspix.scuola.test"
 
 echo $COMMAND
 
 $COMMAND
-
-# NOTARIZATION:
-# xcrun altool --notarize-app --file target/testBuilder-1.0.dmg --primary-bundle-id "it.aspix.scuola.test" --username "edoardo@aspix.it" --password "bjnn-ngbm-rzzv-ylmd" \
-# stampa un RequestUUID 
