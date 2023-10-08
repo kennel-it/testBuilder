@@ -12,20 +12,28 @@ public class ControlloAiuto extends Stage {
 	
 	@FXML
 	private TextArea esempioTesto;
+	@FXML
+    private TextArea manuale;
 	
     @FXML
     void initialize() {
-        String x="";
+        String testoEsempio = "";
+        String testoManuale = "";
         try {
             Scanner scanner;
             scanner = new Scanner( new InputStreamReader( this.getClass().getResourceAsStream("esempioFile.txt"),"UTF-8"));
-            x = scanner.useDelimiter("\\z").next();
+            testoEsempio = scanner.useDelimiter("\\z").next();
+            scanner.close();
+
+            scanner = new Scanner( new InputStreamReader( this.getClass().getResourceAsStream("manuale.txt"),"UTF-8"));
+            testoManuale = scanner.useDelimiter("\\z").next();
             scanner.close();
         } catch (UnsupportedEncodingException e1) {
             // piuttosto improbabile che UTF-8 non esista!
             e1.printStackTrace();
         }
-        esempioTesto.setText(x);
+        esempioTesto.setText(testoEsempio);
+        manuale.setText(testoManuale);
     }
 
 }

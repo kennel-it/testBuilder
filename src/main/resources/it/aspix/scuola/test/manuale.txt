@@ -1,0 +1,14 @@
+Inserisci il file con le domande in una cartella, il programma genererà altri file in automatico.
+
+*Creazione:
+Puoi scrivere i tuoi test in un file txt (una roba da blocco note)  oppure in un foglio di calcolo ods (usando openoffice).
+Inserisci il numero di compiti che ti servono e fai click su "genera test".
+In caso compaiano strani caratteri prova ad usare il controllo alla destra del nome del file (impostalo prima dio caricare il file).
+
+*Correzione:
+Trascina il file delle domande nella prima casella.
+Apri la linguetta correzione e scegli quale compito vuoi correggere
+Se vuoi attiva i suoni (velocizzano la correzione!)
+Scegli il compito e dopo aver fatto glick nell'area della correzione pigia i tasti a-d
+Il programma segnala se la risposta è giusta e se è sbagliata quale è quella giusta.
+Di tanto in tanto salva e quando vuoi (alla fine?) vai su statistiche e fai click su ricalcola. 

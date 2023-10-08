@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane id="pannelloAiuto" styleClass="principale" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.aspix.scuola.test.ControlloAiuto">
+<GridPane id="pannelloAiuto" styleClass="principale" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.aspix.scuola.test.ControlloAiuto">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -32,6 +30,6 @@
       </Label>
       <Label text="Se vuoi usare un file odt scrivi una cosa simile a quella qui sotto" GridPane.rowIndex="3">
       </Label>
-      <TextArea editable="false" focusTraversable="false" prefHeight="70.0" text="Puoi scrivere i tuoi test in un file txt (una roba da blocco note)  oppure in un foglio di calcolo ods (usando openoffice).&#10;Inserisci il numero di compiti che ti servono e fai click su &quot;genera test&quot;.&#10;In caso compaiano strani caratteri prova ad usare il controllo alla destra del nome del file (impostalo prima dio caricare il file)." wrapText="true" />
+      <TextArea fx:id="manuale" editable="false" focusTraversable="false" prefHeight="70.0" wrapText="true" />
    </children>
 </GridPane>

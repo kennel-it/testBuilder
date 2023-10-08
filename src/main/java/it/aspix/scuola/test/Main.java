@@ -1,6 +1,10 @@
 package it.aspix.scuola.test;
 
+import java.awt.Image;
+import java.awt.Taskbar;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import it.aspix.scuola.test.io.NomiFileCorrelati;
 import javafx.application.Application;
@@ -28,7 +32,7 @@ public class Main extends Application {
     TextField nomeFileStatistiche;
     @FXML
     ComboBox<String> encoding;
-    
+
     @FXML
     private void initialize() {
         // imposto i possibili encoding
@@ -39,13 +43,23 @@ public class Main extends Application {
             nomeFileModello.getStyleClass().remove("errore");
             nomeFileCompiti.getStyleClass().remove("errore");
             nomeFileSvolgimenti.getStyleClass().remove("errore");
-            
+
             nomeFileModello.getStyleClass().add( LavoroAttuale.getModello()!=null ? "buono" : "errore");
             nomeFileCompiti.getStyleClass().add( LavoroAttuale.getCompiti()!=null ? "buono" : "errore");
             nomeFileSvolgimenti.getStyleClass().add( LavoroAttuale.getSvolgimenti()!=null ? "buono" : "errore");
         });
+
+        try {
+            Taskbar tb = Taskbar.getTaskbar();
+            Image i = ImageIO.read(getClass().getResourceAsStream("icona.png"));
+            tb.setIconImage(i);
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
     }
-    
+
     /********************************************************************************************
      * Accetto tutti i eventi drag
      *******************************************************************************************/
