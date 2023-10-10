@@ -1,6 +1,11 @@
 = testBuilder
 
-Questo progetto non è production-ready, ci sto ancora lavorando!
+testBuilder serve a creare dei test mescolando sia le domande che le
+risposte nelle domande. 
+
+Può leggere i dati da un file txt o ods, produce in output un file odt.
+
+Supporta anche la fase di correzione e crea statistiche sul compito.
 
 == audio
 
