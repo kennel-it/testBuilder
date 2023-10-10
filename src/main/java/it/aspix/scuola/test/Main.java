@@ -54,8 +54,11 @@ public class Main extends Application {
             Image i = ImageIO.read(getClass().getResourceAsStream("icona.png"));
             tb.setIconImage(i);
         } catch (IOException e1) {
-            // TODO Auto-generated catch block
+            // se non lo trova pazienza
             e1.printStackTrace();
+        } catch (UnsupportedOperationException e2) {
+            // su Windows non si può impostare
+            e2.printStackTrace();
         }
 
     }
