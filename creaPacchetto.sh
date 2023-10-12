@@ -26,8 +26,7 @@ VERSIONE=$(grep -m 1 version pom.xml | sed 's/[^0-9\\.]//g')
 # nome del jar principale (contiene anche il numero di versione)
 JAR_PRINCIPALE="testBuilder-$VERSIONE.jar"
 # nome dell'archivio da creare
-OS=$(uname -s | sed 's/Darwin/macOS/')
-CPU=(uname -m)
+CPU=$(uname -m)
 # nome icona, dipende dal sistema operativo
 # tolgo i jar messi da maven pr fx imn modo da copiare binari e jar esattamente della stessa versione
 # windows meglio lasciarlo in else
@@ -39,18 +38,28 @@ if [[ "$OSTYPE" == "darwin"*  ]]; then
     --input $CARTELLA_LAVORO --dest $DESTINAZIONE \
     --add-modules javafx.controls,javafx.media,javafx.fxml,javafx.web,jdk.charsets \
     --main-class it.aspix.scuola.test.Main --main-jar $JAR_PRINCIPALE \
-    --mac-package-name Sostituzioni \
+    --mac-package-name testBuilder \
     --mac-sign \
     --mac-package-identifier it.aspix.scuola.test"
-    BUNDLE_NAME="testBuilder-$VERSIONE-$OS-$CPU.dmg"
+    BUNDLE_NAME="testBuilder-$VERSIONE-macOS-$CPU.dmg"
 elif [[ "$OSTYPE" == "linux"* ]]; then
     # icona le Linux (l'unico normale visto il tipo del file!)
     ICONA=icone/icona.png
     TIPO_PACCHETTO="app-image"
+    COMANDO="$JPACKAGE --name testBuilder --app-version $VERSIONE --icon $ICONA --type $TIPO_PACCHETTO \
+    --input $CARTELLA_LAVORO --dest $DESTINAZIONE \
+    --add-modules javafx.controls,javafx.media,javafx.fxml,javafx.web,jdk.charsets \
+    --main-class it.aspix.scuola.test.Main --main-jar $JAR_PRINCIPALE"
+    BUNDLE_NAME="testBuilder-$VERSIONE-linux-$CPU.tgz"
 else
     # icona per Windows
     ICONA=icone/icona.ico
     TIPO_PACCHETTO="app-image"
+    COMANDO="$JPACKAGE --name testBuilder --app-version $VERSIONE --icon $ICONA --type $TIPO_PACCHETTO \
+    --input $CARTELLA_LAVORO --dest $DESTINAZIONE \
+    --add-modules javafx.controls,javafx.media,javafx.fxml,javafx.web,jdk.charsets \
+    --main-class it.aspix.scuola.test.Main --main-jar $JAR_PRINCIPALE"
+    BUNDLE_NAME="testBuilder-$VERSIONE-win-$CPU.zip"
 fi
 
 echo "----- ambiente di lavoro -------------------------------------"
@@ -88,11 +97,11 @@ if [[ "$OSTYPE" == "darwin"*  ]]; then
     mv "target/testBuilder-$VERSIONE.dmg" "target/$BUNDLE_NAME"
 elif [[ "$OSTYPE" == "linux"* ]]; then
     cd target
-    tar -cvzf sostituzioni-$VERSIONE.tgz sostituzioni/
+    tar -cvzf $BUNDLE_NAME testBuilder/
     cd ..
 else
     cd target
     cd testBuilder
-    /c/Program\ Files/7-Zip/7z a -tzip ../testBuilder-$VERSIONE.zip *
+    /c/Program\ Files/7-Zip/7z a -tzip ../$BUNDLE_NAME *
     cd ..
 fi
