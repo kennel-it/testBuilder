@@ -1,10 +1,11 @@
 package it.aspix.scuola.test;
 
 public enum OrganizzazioneRisposte {
-	
+
     BLOCK  ("risposte su righe diverse"),
-    INLINE ("risposte su una riga");
-	
+    INLINE ("risposte su una riga"),
+    AUTO   ("risposte su una riga, ridotti su righe diverse");
+
 	private final String descrizione;
 	
 	OrganizzazioneRisposte(String descrizione) {
@@ -20,8 +21,10 @@ public enum OrganizzazioneRisposte {
 			return BLOCK;
 		}else if(d.equals(INLINE.descrizione)){
 			return INLINE;
-		}else{
-			return null;
-		}
-	}
+        }else if(d.equals(AUTO.descrizione)){
+            return AUTO;
+        }else{
+            return null;
+        }
+    }
 }

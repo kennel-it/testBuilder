@@ -26,10 +26,13 @@ public class ControlloGenerazione {
     
     @FXML
     void initialize() {
-        layout.getItems().addAll(OrganizzazioneRisposte.BLOCK.toString(),OrganizzazioneRisposte.INLINE.toString());
+        layout.getItems().addAll(
+                OrganizzazioneRisposte.BLOCK.toString(),
+                OrganizzazioneRisposte.INLINE.toString(),
+                OrganizzazioneRisposte.AUTO.toString());
         layout.setValue(OrganizzazioneRisposte.BLOCK.toString());
         numeroDiCompitiCompleti.requestFocus();
-        
+
         LavoroAttuale.addAscoltatoreCompitoCambiato( x -> {
             if( x == ParteCompito.MODELLO ) {
                 info1.setText("Il modello in uso contiene "+LavoroAttuale.getModello().sizeDomande()+" domande");
@@ -70,5 +73,5 @@ public class ControlloGenerazione {
             // FIXME: webEngine.loadContent("<pre>"+e.getMessage()+"</pre>");
         }
     }
-    
+
 }

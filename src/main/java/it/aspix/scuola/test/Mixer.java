@@ -28,9 +28,11 @@ public class Mixer {
 		
 		// copio
 		cCompito = new Compito();
+		cCompito.ridotto = elimaEliminabile;
 		for(int iDomanda = 0; iDomanda<sorgente.sizeDomande(); iDomanda++){
 			sDomanda = sorgente.getDomanda(iDomanda);
 			cDomanda = new CompitoDomanda(sDomanda.getTesto() );
+			cDomanda.ridotto = elimaEliminabile;
 			cDomanda.posizioneOriginale = iDomanda;
 			for(int iRisposta = 0; iRisposta<sDomanda.size(); iRisposta++){
 				sRisposta = sDomanda.getRisposta(iRisposta);

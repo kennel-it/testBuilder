@@ -7,9 +7,11 @@ import java.util.ArrayList;
 public class Compito {
 	
     public int id;
+    public boolean ridotto = false;
 	public ArrayList<CompitoDomanda> domande = new ArrayList<>();
 	
 	public void addDomanda(CompitoDomanda cd) {
+	    cd.ridotto = ridotto;
 	    domande.add(cd);
 	}
 	
