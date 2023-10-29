@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -10,13 +9,19 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="principale" vgap="5.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.aspix.scuola.test.ControlloGenerazione">
+<GridPane hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="principale" vgap="5.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.aspix.scuola.test.ControlloGenerazione">
   <columnConstraints>
     <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
     <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
@@ -24,13 +29,28 @@
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" valignment="BOTTOM" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <Label text="numero di compiti ridotti:" GridPane.rowIndex="1" />
-      <Label text="layout:" GridPane.rowIndex="3" />
-      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#generaTest" text="Crea compiti" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
-      <TextField fx:id="numeroDiCompitiCompleti" maxWidth="1.7976931348623157E308" text="30" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <ComboBox fx:id="layout" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Label text="numero di compiti completi:" GridPane.rowIndex="2" />
-      <TextField fx:id="numeroDiCompitiRidotti" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label text="numero di compiti ridotti:" GridPane.rowIndex="5" />
+      <Label text="layout:" GridPane.rowIndex="7" />
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#generaTest" text="Crea compiti" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="8" />
+      <TextField fx:id="numeroDiCompitiCompleti" maxWidth="1.7976931348623157E308" text="30" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <ComboBox fx:id="layout" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <Label text="numero di compiti completi:" GridPane.rowIndex="6" />
+      <TextField fx:id="numeroDiCompitiRidotti" GridPane.columnIndex="1" GridPane.rowIndex="5" />
       <Label fx:id="info1" maxWidth="1.7976931348623157E308" styleClass="info" text="Label" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" />
+      <Label text="gruppo 1" GridPane.rowIndex="2" />
+      <Label text="gruppo 2" GridPane.rowIndex="3" />
+      <Label text="gruppo 3" GridPane.rowIndex="4" />
+      <Label text="numero" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label text="ridotto" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Label text="layout" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <CheckBox fx:id="ridotto_0" mnemonicParsing="false" text="ridotto" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <CheckBox fx:id="ridotto_1" mnemonicParsing="false" text="ridotto" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <CheckBox fx:id="ridotto_2" mnemonicParsing="false" text="ridotto" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <TextField fx:id="numeroDiCompiti_0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="numeroDiCompiti_1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="numeroDiCompiti_2" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <ComboBox fx:id="layout_0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <ComboBox fx:id="layout_1" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <ComboBox fx:id="layout_2" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
    </children>
 </GridPane>

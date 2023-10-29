@@ -2,7 +2,10 @@
  	-fx-margin:0.25em; -fx-border-radius:0.2em;
 }
 
-.box { -fx-padding : 1em ; -fx-hgap : 1em }
+/* credo non la usi nessuno 
+ma fa diventare giganter la spunta "ridotto" nella generazione
+.box { -fx-padding : 1em ; -fx-hgap : 1em } */
+
 .ordine { -fx-font-size : 200% ; }
 .origine { -fx-font-size : 85% }
 

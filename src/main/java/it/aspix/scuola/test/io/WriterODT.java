@@ -11,11 +11,10 @@ import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import it.aspix.scuola.test.OrganizzazioneRisposte;
 import it.aspix.scuola.test.compito.Compito;
 
 public class WriterODT {
-    
+
     private static final String fileDaInserire[]={
         "META-INF/manifest.xml",
         "mimetype",
@@ -23,10 +22,10 @@ public class WriterODT {
         // "content.xml"     questo lo genera il programma
     };
 
-    public static void scrivi(File fileDestinazioneOdt, ArrayList<Compito> compiti, OrganizzazioneRisposte modello) throws Exception{
+    public static void scrivi(File fileDestinazioneOdt, ArrayList<Compito> compiti) throws Exception{
         StringBuilder content = new StringBuilder();
         StringBuilder contentSoluzioni = new StringBuilder();
-        
+
         content.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+
         "<office:document-content "+
         "xmlns:office=\"urn:oasis:names:tc:opendocument:xmlns:office:1.0\"\n"+
@@ -78,21 +77,21 @@ public class WriterODT {
             Compito c = compiti.get(j);
             contentSoluzioni.append((j+1)+": "+c.toString()+"\n");
             content.append("<text:p text:style-name=\"intestazione\">Compito numero "+(c.id)+": nome ________________________</text:p>");
-            content.append(c.toODT(modello));
+            content.append(c.toODT(c.organizzazioneRisposte));
             content.append("<text:p text:style-name=\"Standard\" />\n");
         }
-        content.append(     
+        content.append(
         "</office:text>\n"+
         "</office:body>\n"+
         "</office:document-content>");
-        
+
         ByteArrayOutputStream bOS = new ByteArrayOutputStream();
         OutputStreamWriter writer = new OutputStreamWriter(bOS, "UTF-8");
         writer.write(content.toString());
         writer.close();
         bOS.close();
         byte[] buffer = bOS.toByteArray();
-        
+
         InputStream is;
         FileOutputStream fos = new FileOutputStream(fileDestinazioneOdt);
         ZipOutputStream zos = new ZipOutputStream(fos);
@@ -104,7 +103,7 @@ public class WriterODT {
         zos.close();
         fos.close();
     }
-    
+
     /************************************************************************
      * l'InputStream da cui leggere i dati viene chiuso alla fine 
      * @param zos l'OutputStream zippato

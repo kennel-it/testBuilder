@@ -13,7 +13,7 @@
         <maven.compiler.release>21</maven.compiler.release>
         <progetto.jars>${project.build.directory}/jars</progetto.jars>
         <!-- https://search.maven.org/search?q=g:com.github.miachm.sods -->
-        <versione.SODS>1.4.0</versione.SODS>
+        <versione.SODS>1.4.0</versione.SODS> <!-- FIXME: da aggiornare -->
     </properties>
 
     <dependencies>
@@ -36,7 +36,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
+                <version>3.11.0</version>
                 <configuration>
                     <release>${maven.compiler.release}</release>
                 </configuration>
@@ -46,7 +46,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.6.1</version>
                 <configuration>
                     <outputDirectory>${progetto.jars}</outputDirectory>
                     <overWriteReleases>false</overWriteReleases>
@@ -67,7 +67,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.1</version>
+                <version>3.3.0</version>
                 <configuration>
                     <outputDirectory>${progetto.jars}</outputDirectory>
                 </configuration>
