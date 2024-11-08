@@ -38,12 +38,12 @@ public class ControlloCorrezione {
     private Label etichettaRisposteSbagliate;
     @FXML
     private Label etichettaRisposteNonDate;
-    
+
     private PannelloCorrezioneDomanda[] pannelliCorrezione;
     private int domandaInCorrezione;
-    
+
     private Valutatore valutatore = new Valutatore();
-    
+
     @FXML
     void initialize() {
         clickSuono();
@@ -64,11 +64,11 @@ public class ControlloCorrezione {
             suono.setText("suono on");
             SupportoAudio.acceso = true;
         } else {
-            suono.setText("suono ff");
+            suono.setText("suono off");
             SupportoAudio.acceso = false;
         }
     }
-    
+
     Consumer<Integer> cambiataRisposta = indiceRispostaCambiata -> {
         // in verità l'indice della risposta non serve
         try {
@@ -83,7 +83,7 @@ public class ControlloCorrezione {
             punteggio.setText("?");
         }
     };
-    
+
     @FXML
     public void valoriCambiati() {
         try {
@@ -97,14 +97,14 @@ public class ControlloCorrezione {
         }catch(Exception ex) { /* pazienza resterà zero */  };
         cambiataRisposta.accept(-1);
     }
-    
+
     @FXML
     public void selezionatoCompito() {
         int id = selezioneCompito.getValue();
-        
+
         Compito compito = LavoroAttuale.getCompitoPerId(id);
         Svolgimento svolgimento = LavoroAttuale.getSvolgimentoPerId(id);
-        
+
         pannelloDomande.getChildren().clear();
         pannelliCorrezione = new PannelloCorrezioneDomanda[ compito.domande.size() ];
         for(int i=0 ; i<compito.domande.size() ; i++) {
@@ -127,7 +127,7 @@ public class ControlloCorrezione {
         domandaInCorrezione = 0;
         mostraSelezionato();
     }
-    
+
     private void mostraSelezionato() {
         // al primo giro l'altezza è zero perché viene chiamato prima che
         // i pannelli vengano disegnati, poco importa tanto all'inizio
@@ -147,17 +147,17 @@ public class ControlloCorrezione {
             }
         }
     }
-    
+
     @FXML
     public void salvaSvolgimenti() {
         LavoroAttuale.salvaSvolgimenti( LavoroAttuale.getNomeFileSvolgimenti() );
     }
-    
+
     @FXML
     private void tastoPremuto(KeyEvent ev) {
         String carattere = ev.getCharacter();
         System.out.println(carattere);
-        
+
         if( carattere.length()==1 && " abcdef".indexOf(carattere)!=-1 ) {
             int numero = ev.getCharacter().charAt(0)-'a';
             if(numero == ' '-'a') {
@@ -175,7 +175,7 @@ public class ControlloCorrezione {
                 SupportoAudio.play( SupportoAudio.NO );
                 break;
             }
-           
+
             domandaInCorrezione++;
             if(domandaInCorrezione>=pannelliCorrezione.length) {
                 domandaInCorrezione = pannelliCorrezione.length-1;

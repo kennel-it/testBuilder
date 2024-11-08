@@ -39,6 +39,7 @@ public class ControlloGenerazione {
     private ComboBox<String> layout_1;
     @FXML
     private ComboBox<String> layout_2;
+    @SuppressWarnings("unchecked")
     private ComboBox<String>[] layout = (ComboBox<String>[]) new ComboBox[3];
 
     @FXML
