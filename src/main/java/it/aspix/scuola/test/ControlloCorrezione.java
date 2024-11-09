@@ -194,12 +194,24 @@ public class ControlloCorrezione {
 
     @FXML
     public void calcolaPunteggioErrateZero() {
-        ;
+        double intervallo = 10 - Double.parseDouble( valBase.getText() );
+        double numeroDomande = pannelliCorrezione.length;
+        double giusta = intervallo/numeroDomande;
+        double sbagliata = 0;
+        valGiuste.setText(""+giusta);
+        valSbagliate.setText(""+sbagliata);
+        valoriCambiati();
     }
 
     @FXML
     public void calcolaPunteggioErrateMenoUnTerzo() {
-        ;
+        double intervallo = 10 - Double.parseDouble( valBase.getText() );
+        double numeroDomande = pannelliCorrezione.length;
+        double giusta = intervallo/numeroDomande;
+        double sbagliata = -giusta/3;
+        valGiuste.setText(""+giusta);
+        valSbagliate.setText(""+sbagliata);
+        valoriCambiati();
     }
 
 }
