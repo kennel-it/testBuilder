@@ -129,14 +129,19 @@ public class ControlloCorrezione {
     }
 
     private void mostraSelezionato() {
-        // al primo giro l'altezza è zero perché viene chiamato prima che
-        // i pannelli vengano disegnati, poco importa tanto all'inizio
-        // la posizione zero in verticale è quello che serve
-        double altezza = pannelliCorrezione[0].getHeight();
-        System.out.println(altezza);
-        System.out.println("    "+scrollDomande.getVmin()+" "+scrollDomande.getVmax());
-        // FIXME: devi anche scrollare
-        scrollDomande.setVvalue( altezza * domandaInCorrezione / (altezza*pannelliCorrezione.length));
+        double vValue;
+        if(pannelliCorrezione[0].getHeight()==0) {
+            // al primo giro l'altezza è zero perché viene chiamato prima che
+            // i pannelli vengano disegnati, poco importa tanto all'inizio
+            // la posizione zero in verticale è quello che serve
+            vValue = 0;
+        } else {
+            double elementiPresenti = scrollDomande.getHeight() / pannelliCorrezione[0].getHeight();
+            // -2 perché voglio vedere due domande sopra
+            vValue = (domandaInCorrezione-2)/(pannelliCorrezione.length-elementiPresenti);
+        }
+        scrollDomande.setVvalue( vValue );
+
         for(int i=0 ; i<pannelliCorrezione.length ; i++) {
             pannelliCorrezione[i].getStyleClass().clear();
             pannelliCorrezione[i].getStyleClass().add("box");
@@ -185,6 +190,16 @@ public class ControlloCorrezione {
             }
             mostraSelezionato();
         }
+    }
+
+    @FXML
+    public void calcolaPunteggioErrateZero() {
+        ;
+    }
+
+    @FXML
+    public void calcolaPunteggioErrateMenoUnTerzo() {
+        ;
     }
 
 }

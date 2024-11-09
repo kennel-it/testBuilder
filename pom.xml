@@ -13,7 +13,7 @@
         <maven.compiler.release>21</maven.compiler.release>
         <progetto.jars>${project.build.directory}/jars</progetto.jars>
         <!-- https://search.maven.org/search?q=g:com.github.miachm.sods -->
-        <versione.SODS>1.4.0</versione.SODS> <!-- FIXME: da aggiornare -->
+        <versione.SODS>1.6.7</versione.SODS>
     </properties>
 
     <dependencies>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.0-rc1</version>
+            <version>2.18.1</version>
         </dependency>
     </dependencies>
     <build>
@@ -36,7 +36,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.13.0</version>
                 <configuration>
                     <release>${maven.compiler.release}</release>
                 </configuration>
