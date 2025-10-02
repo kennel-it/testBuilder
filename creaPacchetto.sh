@@ -1,12 +1,12 @@
 #!/bin/bash
 
-
 # ATTENZIONE: questo script fa affidamento su una serie di cose più o meno standard
 # - la variabile JAVA_HOME deve essere impostata
 # - maven deve essere installato e sul path
 # - il progetto usa maven 
 # - mvn package mette tutti i jar in target/jars
 # - le icone sono nella cartella icone
+# - su windows deve essere installato 7-Zip
 
 if [ -z "$JAVA_HOME" ]; then
     echo "la variabile JAVA_HOME non è stata impostata"
@@ -28,8 +28,7 @@ JAR_PRINCIPALE="testBuilder-$VERSIONE.jar"
 # nome dell'archivio da creare
 CPU=$(uname -m)
 # nome icona, dipende dal sistema operativo
-# tolgo i jar messi da maven pr fx imn modo da copiare binari e jar esattamente della stessa versione
-# windows meglio lasciarlo in else
+# windows meglio lasciarlo in else (perché?)
 if [[ "$OSTYPE" == "darwin"*  ]]; then
     # icona per macOS
     ICONA=icone/icona.icns
@@ -80,6 +79,7 @@ echo "ICONA          : $ICONA"
 echo "VERSIONE       : $VERSIONE"
 echo "COMANDO        : $COMANDO"
 echo "BUNDLE_NAME    : $BUNDLE_NAME"
+echo "DESTINAZIONE   : $DESTINAZIONE"
 echo ""
 echo "--------------------------------------------------------------"
 
@@ -88,11 +88,10 @@ mvn -q package -DskipTests
 
 mkdir $CARTELLA_LAVORO
 cp $CARTELLA_JARS/* $CARTELLA_LAVORO
-# cp $DESTINAZIONE/$JAR_PRINCIPALE $CARTELLA_LAVORO
-# rm $CARTELLA_LAVORO/javafx*
 
 $COMANDO
 
+# piccoli aggiustamenti che dipendono dal sistema operativo
 if [[ "$OSTYPE" == "darwin"*  ]]; then
     mv "target/testBuilder-$VERSIONE.dmg" "target/$BUNDLE_NAME"
 elif [[ "$OSTYPE" == "linux"* ]]; then

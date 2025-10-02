@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -19,7 +20,7 @@ import javafx.scene.input.TransferMode;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	
+
     @FXML
     TextField nomeFileModello;
     @FXML
@@ -32,6 +33,8 @@ public class Main extends Application {
     TextField nomeFileStatistiche;
     @FXML
     ComboBox<String> encoding;
+    @FXML
+    Tab linguettaValutazioni;
 
     @FXML
     private void initialize() {
@@ -73,7 +76,7 @@ public class Main extends Application {
         }
         event.consume();
     }
-    
+
     /********************************************************************************************
      * Accetto l'evento drop e prendo il primo file
      *******************************************************************************************/
@@ -111,22 +114,27 @@ public class Main extends Application {
         event.setDropCompleted(success);
         event.consume();
     }
-    
+
     @FXML
     private void cambiatoEncoding() {
         // FIXME
     }
-    
+
     @FXML
     private void aggiornaNomeFileDaStampare() {
         LavoroAttuale.setNomeFileStampa( nomeFileStampa.getText() );
     }
-    
+
     @FXML
     private void aggiornaNomeFileStatistiche() {
         LavoroAttuale.setNomeFileStatistiche( nomeFileStatistiche.getText() );
     }
-    
+
+    @FXML
+    private void cambiataLinguetta() {
+        System.out.println( ">>>"+linguettaValutazioni.isSelected());
+    }
+
     /********************************************************************************************
      * Avvio dell'applicazione
      *******************************************************************************************/
@@ -141,5 +149,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

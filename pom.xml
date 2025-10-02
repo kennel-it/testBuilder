@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.release>24</maven.compiler.release>
         <progetto.jars>${project.build.directory}/jars</progetto.jars>
         <!-- https://search.maven.org/search?q=g:com.github.miachm.sods -->
         <versione.SODS>1.6.7</versione.SODS>
@@ -81,7 +81,7 @@
             </resource>
             <resource>
                 <!-- questa è una cartella in più, serve soltanto a mettere un
-                file in cui maven 
+                file in cui maven
                 quando compila registra il numero di versione e momento di compilazione -->
                 <directory>src/main/resources-filtered</directory>
                 <filtering>true</filtering>

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane id="principale" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.aspix.scuola.test.Main">
+<BorderPane id="principale" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.aspix.scuola.test.Main">
    <center>
       <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -25,6 +25,11 @@
               <fx:include id="tab2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" source="correzione.fxml" />
             </content>
           </Tab>
+            <Tab fx:id="linguettaValutazioni" onSelectionChanged="#cambiataLinguetta" text="valutazioni">
+              <content>
+                <fx:include id="tab3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" source="valutazioni.fxml" />
+              </content>
+            </Tab>
           <Tab text="statistiche">
             <content>
               <fx:include id="tab3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" source="statistiche.fxml" />

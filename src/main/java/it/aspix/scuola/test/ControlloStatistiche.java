@@ -17,34 +17,41 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Pane;
 
 public class ControlloStatistiche {
-    
+
     @FXML
     Button ricalcola;
     @FXML
     Button salvaPNG;
     @FXML
     Pane contenuto;
-    @FXML 
+    @FXML
     ToggleButton etichette;
     @FXML
     ToggleButton legenda;
-    
-    @FXML 
+
+    @FXML
     private void aggiornaStatistiche() {
+        if(LavoroAttuale.getModello()==null) {
+            Alert dialogoAllerta = new Alert(AlertType.ERROR, "Devi prima caricare un compito per poter calcolare le statistiche.");
+            dialogoAllerta.showAndWait();
+            return;
+        }
         contenuto.getChildren().clear();
         Compito compito;
         Svolgimento svolgimento;
         Valutatore v;
         String indice;
-        
-        // la chiave è domanda#risposta compresa la risposta "-1" non data 
+
+        // la chiave è domanda#risposta compresa la risposta "-1" non data
         // il valore è quanti l'hanno data
         HashMap<String, Integer> totali = new HashMap<>();
         // inizializzo tutti i valori a zero
@@ -58,7 +65,7 @@ public class ControlloStatistiche {
             }
             totali.put(i+"#-1", 0);
         }
-        
+
         for( int i=0; i<LavoroAttuale.getCompiti().size(); i++) {
             compito = LavoroAttuale.getCompiti().get(i);
             svolgimento = LavoroAttuale.getSvolgimentoPerId( compito.id );
@@ -73,22 +80,25 @@ public class ControlloStatistiche {
             }
             System.out.println(messaggio);
         }
-        
+
         ObservableList<PieChart.Data> dati;
         PieChart torta;
         for(int i=0 ; i<modello.sizeDomande() ; i++) {
             ModelloDomanda md = modello.getDomanda(i);
             System.out.println(md.getTesto());
             indice = i+"#-1";
-            
-            contenuto.getChildren().add( new Label( md.getTesto() ));
+
+            contenuto.getChildren().add( new Label( mettiACapo(md.getTesto(),80) ));
             dati = FXCollections.observableArrayList();
-            
+
             for(int indiceRisposta=0; indiceRisposta<md.size() ; indiceRisposta++) {
                 indice = i+"#"+indiceRisposta;
                 System.out.println("  "+md.getRisposta(indiceRisposta).testo()+" -> "+totali.get(indice));
                 if( totali.get(indice)>0 ) {
-                    String etichetta = md.getRisposta(indiceRisposta).testo()+" ["+totali.get(indice)+"]";
+                    String etichetta = mettiACapo(
+                    		md.getRisposta(indiceRisposta).testo()+" ["+totali.get(indice)+"]",
+                    		20
+                    );
                     dati.add( new PieChart.Data(etichetta, totali.get(indice)) );
                 }
             }
@@ -97,10 +107,21 @@ public class ControlloStatistiche {
             torta.setLabelsVisible( etichette.isSelected() );
             contenuto.getChildren().add( torta );
         }
-        
+
     }
-    
-    @FXML 
+
+    private static final String mettiACapo(String x, int l) {
+    	int posSpazio = x.indexOf(' ', l-2);
+    	if(x.length()>l && posSpazio!=-1) {
+    		String risposta = x.substring(0,posSpazio)+"\n"+
+    				x.substring(posSpazio+1);
+    		return risposta;
+    	} else {
+    		return x;
+    	}
+    }
+
+    @FXML
     private void salvaStatistiche() {
         WritableImage immagine = contenuto.snapshot(new SnapshotParameters(), null);
         RenderedImage renderedImage = SwingFXUtils.fromFXImage(immagine, null);

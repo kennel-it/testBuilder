@@ -5,6 +5,8 @@ import java.util.function.Consumer;
 import it.aspix.scuola.test.compito.Compito;
 import it.aspix.scuola.test.svolgimento.Svolgimento;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -151,6 +153,7 @@ public class ControlloCorrezione {
                 pannelliCorrezione[i].getStyleClass().add("box-plain");
             }
         }
+        System.out.println("SELEZIONATO");
     }
 
     @FXML
@@ -192,26 +195,30 @@ public class ControlloCorrezione {
         }
     }
 
+    private void calcolaValoriGiusteSbagliate(double frazioneSbagliata) {
+        if( LavoroAttuale.getCompiti()!=null ) {
+            double intervallo = 10 - Double.parseDouble( valBase.getText() );
+            double numeroDomande = LavoroAttuale.getCompiti().get(0).domande.size();
+            System.out.println("numero domande: "+numeroDomande);
+            double giusta = intervallo/numeroDomande;
+            double sbagliata = giusta*frazioneSbagliata;
+            valGiuste.setText(""+giusta);
+            valSbagliate.setText(""+sbagliata);
+            valoriCambiati();
+        } else {
+            Alert dialogoAllerta = new Alert(AlertType.ERROR, "Devi prima caricare un compito per poter calcolare i parametri.");
+            dialogoAllerta.showAndWait();
+        }
+    }
+
     @FXML
     public void calcolaPunteggioErrateZero() {
-        double intervallo = 10 - Double.parseDouble( valBase.getText() );
-        double numeroDomande = pannelliCorrezione.length;
-        double giusta = intervallo/numeroDomande;
-        double sbagliata = 0;
-        valGiuste.setText(""+giusta);
-        valSbagliate.setText(""+sbagliata);
-        valoriCambiati();
+        calcolaValoriGiusteSbagliate(0);
     }
 
     @FXML
     public void calcolaPunteggioErrateMenoUnTerzo() {
-        double intervallo = 10 - Double.parseDouble( valBase.getText() );
-        double numeroDomande = pannelliCorrezione.length;
-        double giusta = intervallo/numeroDomande;
-        double sbagliata = -giusta/3;
-        valGiuste.setText(""+giusta);
-        valSbagliate.setText(""+sbagliata);
-        valoriCambiati();
+        calcolaValoriGiusteSbagliate(-1/3.0);
     }
 
 }

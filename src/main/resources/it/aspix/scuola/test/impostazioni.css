@@ -2,22 +2,22 @@
  	-fx-margin:0.25em; -fx-border-radius:0.2em;
 }
 
-/* credo non la usi nessuno 
+/* credo non la usi nessuno
 ma fa diventare giganter la spunta "ridotto" nella generazione
 .box { -fx-padding : 1em ; -fx-hgap : 1em } */
 
 .ordine { -fx-font-size : 200% ; }
 .origine { -fx-font-size : 85% }
 
-.box > .toggle-button { 
+.box > .toggle-button {
 	-fx-font-size : 150% ; -fx-min-width : 4em ;
 	-fx-border-radius: 0.75em ; -fx-border-width: 0.2em;
 	-fx-background-radius: 0.75em;
-	-fx-font-weight: bold 
+	-fx-font-weight: bold
 }
 
 #pannelloInput {
-	-fx-padding: 0.5em;	
+	-fx-padding: 0.5em;
 	-fx-hgap: 0.25em;
 	-fx-vgap: 0.25em;
 }
@@ -27,7 +27,7 @@ ma fa diventare giganter la spunta "ridotto" nella generazione
 	-fx-padding: 0em 0.5em 0em 0em;
 	-fx-text-alignment: right;
 	-fx-alignment: center-right;
-} 
+}
 .info { -fx-alignment: center-left; }
 
 .principale {
@@ -36,7 +36,10 @@ ma fa diventare giganter la spunta "ridotto" nella generazione
 	-fx-vgap: 1em;
 }
 
-#pannelloGrafici > .label { -fx-padding: 1em 0em 0em 0em; -fx-font-size : 150% ;}
+#pannelloGrafici > .label {
+	-fx-padding: 1em 0em 0em 1em; -fx-font-size : 150% ;
+	-fx-text-alignment: left; -fx-alignment:left
+}
 .button, .toggle-button { -fx-min-width:8em; }
 
 .text-area:focused { -fx-background-color: transparent }
@@ -54,7 +57,7 @@ ma fa diventare giganter la spunta "ridotto" nella generazione
 
 .tab-content-area { -fx-padding: 1em }
 
-.tab-content-area .button, .tab-content-area .toggle-button { 
+.tab-content-area .button, .tab-content-area .toggle-button {
 	-fx-border-width: 1px; -fx-border-radius: 0.5em ; -fx-border-style: solid;
  	-fx-background-radius: 0.5em ; -fx-background-insets: 1px;
 }
@@ -69,5 +72,5 @@ https://stackoverflow.com/questions/35260168/how-to-remove-the-blue-color-in-sel
 	-fx-font-family: monospaced;
 	-fx-font-weight: bold;
 	-fx-padding: 0.25em;
-	-fx-background-radius: 0.5em; 
+	-fx-background-radius: 0.5em;
 }
